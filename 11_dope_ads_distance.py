@@ -95,5 +95,11 @@ gg=ggplot(data , aes(x = 'POSES', y = 'DISTANCE',size='2',color='POSES')) +\
     geom_point() +\
     ggtitle('Zoptymalizowana odległość')
 
-print(gg)
+ggsave(plot = gg, filename ='DISTANCE')
+
+#choose max value:
+
+pose_num=data['DISTANCE'].idxmax()
+
+pose=("pose"+str(pose_num))
 

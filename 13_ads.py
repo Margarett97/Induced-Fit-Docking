@@ -10,7 +10,8 @@ from plotnine import *
 import matplotlib as mpl
 mpl.rcParams['patch.force_edgecolor'] = True
 
-from names import path, receptor
+receptor="1rthA"
+path='C:/Users/pukma/Desktop/IFD'
 
 dockingLog = open(path+'/'+receptor+".dlg", "r")
 logLines = dockingLog.readlines()
@@ -34,25 +35,49 @@ def SaveDict(dict, dockingLog):
         for value in d.items():
             f.write('%s %s\n' % value)
 
-
 SaveDict(dockingScore, "ASD_SCORE")
 
 
-##plot
+file=np.loadtxt('ASD_SCORE.txt')
+ADS=file[:,1]
 
-##ADS=energyValue
-##data=pd.DataFrame(
-##    {
-##    "POSES" : ['pose0','pose1','pose2','pose3','pose4','pose5','pose6','pose7','pose8','pose9'],   
-##    "col1" : [0,1,2,3,4,5,6,7,8,9],
-##    "col2" : ADS
-##    }
-##    )
-##
-##gg=ggplot(data , aes(x = 'POSES', y = 'AUTODOCKSCORE',size='2',color='POSES')) +\
-##    geom_point() +\
-##    ggtitle('Wartość funkcji oceniającej')
-##
-##print(gg)
+data=pd.DataFrame(
+    {
+    "POSES" : ['pose0','pose1','pose2','pose3','pose4','pose5','pose6','pose7','pose8','pose9'],   
+    "col1" : [0,1,2,3,4,5,6,7,8,9],
+    "col2" : ADS
+    })
+
+gg=ggplot(data , aes(x = 'POSES', y = 'ADS',size='2',color='POSES')) +\
+    geom_point() +\
+    ggtitle('AutoDockScore')
+    
+        
+ggsave(plot = gg, filename ='ADScore')
+
+#choose the best pose:
+
+value=np.argmin(ADS)
+pose=("pose"+str(value))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
