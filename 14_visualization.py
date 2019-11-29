@@ -6,10 +6,12 @@ from chimera import *
 from chimera import runCommand as rc
 from 13_ads import pose
 
-path='C:/Users/pukma/Desktop/test'
+from parameters import *
+
+os.chdir(work_dir)
+
 #ref='1dbb'
-ligand='STR'
-os.chdir(path)
+
 
 #rc("open #0 " + ref + ".pdb")
 rc("open #1 " + pose + ".pdb")

@@ -5,8 +5,9 @@ import os
 from chimera import *
 from chimera import runCommand as rc
 from 11_dope_ads_distance import pose
+from parameters import *
 
-os.chdir(path)
+os.chdir(work_dir)
 rc("open "+ pose)
 rc("select :/isHet " ) 
 rc("delete selected")

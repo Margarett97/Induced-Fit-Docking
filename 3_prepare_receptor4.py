@@ -10,7 +10,9 @@ from MolKit import Read
 import MolKit.molecule
 import MolKit.protein
 from AutoDockTools.MoleculePreparation import AD4ReceptorPreparation
+from parameters import *
 
+os.chdir(work_dir)
 
 if __name__ == '__main__':
     import sys

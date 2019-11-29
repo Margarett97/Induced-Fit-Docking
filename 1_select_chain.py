@@ -1,20 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
+#Script preparing the selected protein subunit
 
 import os
 from chimera import *
 from chimera import runCommand as rc
-from names import chain_del, receptor_pdb,  path
+from parameters import *
 
-os.chdir(path)
+os.chdir(work_dir)
 
-replyobj.status("Processing" + receptor_pdb + ".pdb")
-rc("open "+ receptor_pdb) 
+rc("open "+ receptor +".pdb") 
 rc("delete : ."+chain_del)
 rc("select :/isHet " ) 
 rc("delete selected")
-rc("write #0 "+receptor_pdb+".pdb")
+rc("write #0 "+receptor+".pdb")
 rc("close all")
 
 

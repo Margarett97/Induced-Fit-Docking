@@ -8,7 +8,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import sys
+import sys, os
 from PyQt5.QtCore import  pyqtSlot
 from PyQt5.QtWidgets import QApplication, QDialog, QInputDialog, QLineEdit, QFileDialog
 from PyQt5.uic import loadUi
@@ -385,8 +385,11 @@ class Ui_Second(object):
 
     def ReceptorID(self):
         filename= QFileDialog.getOpenFileName()
-        receptor = filename[0]
+        file =filename[0]
+        folder, name = os.path.split(file)
+        receptor, ext = os.path.splitext(name)
         self.receptor_value.setText(receptor)
+        
 
         with open('parameters.py','a') as p:
             name="receptor='"
@@ -405,7 +408,9 @@ class Ui_Second(object):
             
     def LigandID(self):
         filename= QFileDialog.getOpenFileName()
-        ligand = filename[0]
+        file = filename[0]
+        folder, name = os.path.split(file)
+        ligand, ext = os.path.splitext(name)
         self.ligand_value.setText(ligand)
 
         with open('parameters.py','a') as p:
@@ -416,7 +421,6 @@ class Ui_Second(object):
 
     def OK(self):
         
-
     
         chain_del_value=self.rec_chain_value.text()
         lig_chain_value=self.lig_chain_value.text()
@@ -436,20 +440,36 @@ class Ui_Second(object):
             p.write(name + chain_del_value+"'\n")
             name="chain_lig='"
             p.write(name + lig_chain_value+"'\n")
-            name="x='"
-            p.write(name + x+"'\n")
-            name="y='"
-            p.write(name + y+"'\n")
-            name="z='"
-            p.write(name + z+"'\n")
-            name="x_dim='"
-            p.write(name + x_dim+"'\n")
-            name="y_dim='"
-            p.write(name + y_dim+"'\n")
-            name="z_dim='"
-            p.write(name + z_dim+"'\n")
-            name="spacing='"
-            p.write(name+spacing+"'\n")
+            name="x="
+            p.write(name + x+"\n")
+            name="y="
+            p.write(name + y+"\n")
+            name="z="
+            p.write(name + z+"\n")
+
+            if x_dim!='' :
+                name="x_dim='"
+                p.write(name + x_dim+"'\n")
+            elif y_dim!='':
+                name="y_dim='"
+                p.write(name + y_dim+"'\n")
+            elif z_dim!='':
+                name="z_dim='"
+                p.write(name + z_dim+"'\n")
+            elif spacing!='':
+                name="spacing='"
+                p.write(name+spacing+"'\n")
+
+            else:
+                name1="x_dim="
+                p.write(name1 +"40\n")
+                name2="y_dim="
+                p.write(name2+"40\n")
+                name3="z_dim="
+                p.write(name3+"40\n")
+                name4="spacing="
+                p.write(name4+"0.375\n")
+                
 
     def Exit2(self):
         Second.close()

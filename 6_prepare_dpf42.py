@@ -15,7 +15,9 @@ from AutoDockTools.DockingParameters import DockingParameters, genetic_algorithm
 
 from AutoDockTools.atomTypeTools import AutoDock4_AtomTyper
 from numpy import oldnumeric as Numeric
- 
+from parameters import *
+
+os.chdir(work_dir)
 
 def usage():
     print "Usage: prepare_dpf42.py -l pdbqt_file -r pdbqt_file"

@@ -1,22 +1,18 @@
-#AUTODOCKSCORE
-import matplotlib.pyplot as plt; plt.rcdefaults()
+import os
 import numpy as np
-import matplotlib.pyplot as plt
-
 from collections import OrderedDict
-from operator import itemgetter
 import pandas as pd
 from plotnine import *
-import matplotlib as mpl
-mpl.rcParams['patch.force_edgecolor'] = True
 
-receptor="1rthA"
-path='C:/Users/pukma/Desktop/IFD'
+from parameters import *
 
-dockingLog = open(path+'/'+receptor+".dlg", "r")
+os.chdir(work_dir)
+
+
+dockingLog = open(work_dir+'/'+receptor+".dlg", "r")
 logLines = dockingLog.readlines()
 energyValue=[]
-num=0
+num=1
 dockingScore={}
 for i, line in enumerate(logLines):
     if line.startswith("Final-Value:"):
@@ -31,20 +27,20 @@ def SaveDict(dict, dockingLog):
     x, y = zip(*lists)
     SortedValues = dict.values()
     d = OrderedDict(dict.items())
-    with open(path+'/'+ dockingLog+ ".txt", 'w') as f:
+    with open(work_dir+'/'+ dockingLog+ ".txt", 'w') as f:
         for value in d.items():
             f.write('%s %s\n' % value)
 
-SaveDict(dockingScore, "ASD_SCORE")
+SaveDict(dockingScore, "ADS_SCORE")
 
 
-file=np.loadtxt('ASD_SCORE.txt')
+file=np.loadtxt('ADS_SCORE.txt')
 ADS=file[:,1]
 
 data=pd.DataFrame(
     {
-    "POSES" : ['pose0','pose1','pose2','pose3','pose4','pose5','pose6','pose7','pose8','pose9'],   
-    "col1" : [0,1,2,3,4,5,6,7,8,9],
+    "POSES" : ['pose1','pose2','pose3','pose4','pose5','pose6','pose7','pose8','pose9','pose10'],   
+    "col1" : [1,2,3,4,5,6,7,8,9,10],
     "col2" : ADS
     })
 

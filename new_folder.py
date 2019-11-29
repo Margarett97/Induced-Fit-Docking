@@ -7,5 +7,3 @@ def createFolder(directory):
     except OSError:
         print ('Error: Creating directory. ' +  directory)
         
-
-

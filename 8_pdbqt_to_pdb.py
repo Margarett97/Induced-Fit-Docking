@@ -6,6 +6,9 @@ from string import find
 from MolKit import Read
 from MolKit.pdbWriter import PdbWriter
 
+from parameters import *
+
+os.chdir(work_dir)
 
 
 

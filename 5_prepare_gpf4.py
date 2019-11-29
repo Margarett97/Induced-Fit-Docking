@@ -12,6 +12,9 @@ from MolKit import Read
 from AutoDockTools.GridParameters import GridParameters, grid_parameter_list4
 from AutoDockTools.GridParameters import GridParameter4FileMaker
 from AutoDockTools.atomTypeTools import AutoDock4_AtomTyper
+from parameters import *
+
+os.chdir(work_dir)
 
 
 def usage():

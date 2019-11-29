@@ -9,6 +9,9 @@
 import os
 
 from AutoDockTools.Docking import Docking
+from parameters import *
+
+os.chdir(work_dir)
 
 
 if __name__ == '__main__':

@@ -9,7 +9,9 @@ import os
 from MolKit import Read
 
 from AutoDockTools.MoleculePreparation import AD4LigandPreparation
+from parameters import *
 
+os.chdir(work_dir)
 
 
 if __name__ == '__main__':

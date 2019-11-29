@@ -1,20 +1,22 @@
 # align_models & optimize_loop
 
-
+import os
 from modeller import *
 from modeller.automodel import *
 from modeller.scripts import complete_pdb
 from modeller.optimizers import molecular_dynamics, conjugate_gradients
 from modeller.automodel import autosched
 
-from names import path, receptor
+from parameters import *
 
+os.chdir(work_dir)
 
-
+if os.path.exists("temp.py"):
+  os.remove("temp.py")
 
 #PARAMETRY:
 
-model_name = 'pose' #to się nie będzie zmieniać
+model_name = 'pose'
 
 #DEF-OPTIMIZE:
 
@@ -90,7 +92,7 @@ alig='myAlignment.ali'
 #OPTIMIZATION:
 
 
-for i in range(0,10):
+for i in range(1,11):
 	env = environ(rand_seed=-49837)
 	env.io.hetatm = True
 	#soft sphere potential

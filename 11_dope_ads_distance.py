@@ -1,19 +1,16 @@
-import matplotlib.pyplot as plt; plt.rcdefaults()
+import os
 import numpy as np
-import matplotlib.pyplot as plt
-
 from collections import OrderedDict
-from operator import itemgetter
 import pandas as pd
 from plotnine import *
-import matplotlib as mpl
-mpl.rcParams['patch.force_edgecolor'] = True
 
-from names import path, log_file, receptor
+from parameters import *
+
+os.chdir(work_dir)
 
 #DOPE
 
-log = open(path+'/'+log_file+".log", "r")
+log = open(work_dir+'/'+"dope.log", "r")
 
 logLines = log.readlines()
 DOPEvalue = []
@@ -31,16 +28,16 @@ def tuplizeDopes(vec):
 
 Dope_value = tuplizeDopes(DOPEvalue)
 
-with open(path+'/'+"DOPE.txt", 'w') as f:
+with open(work_dir+'/'+"DOPE.txt", 'w') as f:
     f.writelines(list(('%d %s %s\n' % (it, v[0], v[1])) for it, v in enumerate(Dope_value)))
 
 #AUTODOCKSCORE
 
 
-dockingLog = open(path+'/'+receptor+".dlg", "r")
+dockingLog = open(work_dir+'/'+receptor+".dlg", "r")
 logLines = dockingLog.readlines()
 energyValue=[]
-num=0
+num=1
 dockingScore={}
 for i, line in enumerate(logLines):
     if line.startswith("Final-Value:"):
@@ -55,17 +52,17 @@ def SaveDict(dict, dockingLog):
     x, y = zip(*lists)
     SortedValues = dict.values()
     d = OrderedDict(dict.items())
-    with open(path+'/'+ dockingLog+ ".txt", 'w') as f:
+    with open(work_dir+'/'+ dockingLog+ ".txt", 'w') as f:
         for value in d.items():
             f.write('%s %s\n' % value)
 
 
-SaveDict(dockingScore, "ASD_SCORE")
+SaveDict(dockingScore, "ADS_SCORE")
 
 #DISTANCE
 
-DOPE=open(path+'/'+'DOPE.txt', 'r')
-ADS=open(path+'/'+'ASD_SCORE.txt', 'r')
+DOPE=open(work_dir+'/'+'DOPE.txt', 'r')
+ADS=open(work_dir+'/'+'ADS_SCORE.txt', 'r')
 
 
 dope=np.loadtxt(DOPE)
@@ -85,15 +82,15 @@ DISTANCE=np.sqrt((pow(ads_norm,2)+pow(dope_norm,2)))
 
 data=pd.DataFrame(
     {
-    "POSES" : ['pose0','pose1','pose2','pose3','pose4','pose5','pose6','pose7','pose8','pose9'],   
-    "col1" : [0,1,2,3,4,5,6,7,8,9],
+    "POSES" : ['pose1','pose2','pose3','pose4','pose5','pose6','pose7','pose8','pose9','pose10'],   
+    "col1" : [1,2,3,4,5,6,7,8,9,10],
     "col2" : DISTANCE
     }
     )
 
 gg=ggplot(data , aes(x = 'POSES', y = 'DISTANCE',size='2',color='POSES')) +\
     geom_point() +\
-    ggtitle('Zoptymalizowana odległość')
+    ggtitle('Optimized distance')
 
 ggsave(plot = gg, filename ='DISTANCE')
 
