@@ -1,6 +1,6 @@
 import subprocess, os
 from new_folder import *
-from values import *
+
 
 
 ##DZIAŁANIE W KONKRETNEJ ŚCIEŻCE
@@ -8,7 +8,7 @@ from values import *
 
 ##SOFT DOCKING:
 
-subprocess.call(["C:/Program Files/Chimera 1.13.1/bin/chimera", "--nogui", "--script","C:/Users/pukma/Desktop/PROTOKOL/1_select_chain.py"])
+subprocess.call(["C:/Program Files/Chimera 1.13.1/bin/chimera", "--nogui", "--script","C:/Users/pukma/Desktop/IFD/1_select_chain.py"])
 subprocess.call(["python2", "2_prepare_receptor4.py", "-r", "1rth.pdb", "-A", "hydrogens", "-U", "nphs_lps_waters"])
 subprocess.call(["python2", "3_prepare_ligand4.py", "-l", "612.pdb", "-A", "hydrogens", "-U", "nphs"])
 subprocess.call(["python2", "4_prepare_gpf4.py", "-l", "612.pdbqt","-r", "1rth.pdbqt", "-o", "grid.gpf", "-p", "gridcenter=0.745,-35.615,25.516"])
