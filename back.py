@@ -12,7 +12,7 @@ import sys, os , subprocess
 from PyQt5.QtCore import  pyqtSlot
 from PyQt5.QtWidgets import QApplication, QDialog, QInputDialog, QLineEdit, QFileDialog
 from PyQt5.uic import loadUi
-
+from taskthread import *
 
 class Ui_Second(object):
     def setupUi(self, Second):
@@ -349,6 +349,7 @@ class Ui_Second(object):
         self.exit2_button.clicked.connect(self.Exit2)
 
 
+
         
     def AddFilePath4(self):
         work_dir= QFileDialog.getExistingDirectory()
@@ -402,12 +403,12 @@ class Ui_Second(object):
         with open("parameters.py","a") as p:
             name="chain_del='"
             p.write(name + chain_del_value+"'\n")
-            name="x="
-            p.write(name + x+"\n")
-            name="y="
-            p.write(name + y+"\n")
-            name="z="
-            p.write(name + z+"\n")
+            name="x='"
+            p.write(name + x+"'\n")
+            name="y='"
+            p.write(name + y+"'\n")
+            name="z='"
+            p.write(name + z+"'\n")
 
             if x_dim != '':
                 name="x_dim='"
@@ -432,14 +433,18 @@ class Ui_Second(object):
                 name4="spacing='"
                 p.write(name4+"0.375'\n")
 
-    subprocess.call(["py","0_RUN.py"],shell=True)
-                
+        
+
+
+        
+        subprocess.call(["py","0_RUN.py"],shell=True)
+
+
+             
 
     def Exit2(self):
         Second.close()
         
-        
-
 
 
 

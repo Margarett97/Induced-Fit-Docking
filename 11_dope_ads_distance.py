@@ -1,4 +1,4 @@
-import os
+import os, shutil 
 import numpy as np
 from collections import OrderedDict
 import pandas as pd
@@ -82,8 +82,8 @@ DISTANCE=np.sqrt((pow(ads_norm,2)+pow(dope_norm,2)))
 
 data=pd.DataFrame(
     {
-    "POSES" : ['pose1','pose2','pose3','pose4','pose5','pose6','pose7','pose8','pose9','pose10'],   
-    "col1" : [1,2,3,4,5,6,7,8,9,10],
+    "POSES" : ['pose0','pose1','pose2','pose3','pose4','pose5','pose6','pose7','pose8','pose9'],   
+    "col1" : [0,1,2,3,4,5,6,7,8,9],
     "col2" : DISTANCE
     }
     )
@@ -96,7 +96,17 @@ ggsave(plot = gg, filename ='DISTANCE')
 
 #choose max value:
 
-pose_num=data['DISTANCE'].idxmax()
+pose_num=data["col2"].idxmax()
 
 pose=("pose"+str(pose_num))
+
+
+with open("temp.py","a") as p:
+    name="best_pose='"
+    p.write(name+pose+"'\n")
+
+
+shutil.copy(work_dir+"/temp.py",work_dir+"/IFD") 
+shutil.copy(work_dir+"/"+pose+".pdb",work_dir+"/IFD")
+shutil.copy(work_dir+"/"+ligand+".pdb",work_dir+"/IFD")  
 

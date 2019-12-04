@@ -6,148 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>478</width>
-    <height>269</height>
+    <width>476</width>
+    <height>257</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="14" column="9" colspan="2">
-    <widget class="QLineEdit" name="spacing_value"/>
-   </item>
-   <item row="6" column="5" rowspan="2">
-    <widget class="QToolButton" name="ReferenceButton">
-     <property name="text">
-      <string>...</string>
-     </property>
-    </widget>
-   </item>
-   <item row="7" column="10">
-    <widget class="QLineEdit" name="z_value"/>
-   </item>
-   <item row="4" column="10">
-    <widget class="QLineEdit" name="x_value"/>
-   </item>
-   <item row="5" column="9">
-    <widget class="QLabel" name="y_center_name">
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Y-center:</string>
-     </property>
-    </widget>
-   </item>
-   <item row="9" column="2" rowspan="2" colspan="3">
-    <widget class="QLineEdit" name="ligand_value"/>
-   </item>
-   <item row="7" column="9">
-    <widget class="QLabel" name="z_center_name">
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Z-center:</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="10">
-    <widget class="QLineEdit" name="y_value"/>
-   </item>
-   <item row="13" column="9">
-    <widget class="QLabel" name="z_dim_name">
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Z-dimension:</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="5" rowspan="2">
-    <widget class="QToolButton" name="PathButton">
-     <property name="text">
-      <string>...</string>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="5" rowspan="2">
-    <widget class="QToolButton" name="ReceptorButton">
-     <property name="text">
-      <string>...</string>
-     </property>
-    </widget>
-   </item>
-   <item row="14" column="7" colspan="2">
-    <widget class="QLabel" name="spacing_label">
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>       Spacing:</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0" rowspan="2">
-    <widget class="QLabel" name="path_name">
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Path:</string>
-     </property>
-    </widget>
-   </item>
-   <item row="11" column="4">
-    <widget class="QLineEdit" name="rec_chain_value"/>
-   </item>
-   <item row="16" column="10">
-    <widget class="QPushButton" name="exit2_button">
-     <property name="text">
-      <string>Exit</string>
-     </property>
-    </widget>
-   </item>
-   <item row="11" column="10">
-    <widget class="QLineEdit" name="x_dim_value"/>
-   </item>
-   <item row="12" column="9">
-    <widget class="QLabel" name="y_dim_name">
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Y-dimension:</string>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="9">
-    <widget class="QLabel" name="x_center_name">
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>X-center:</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="0" rowspan="2" colspan="11">
+   <item row="0" column="0" colspan="7">
     <widget class="QLabel" name="api_name">
      <property name="palette">
       <palette>
@@ -595,39 +462,120 @@
       <font>
        <family>Garamond</family>
        <pointsize>28</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
      </property>
      <property name="text">
-      <string>         INDUCED FIT DOCKING</string>
+      <string>                            FitDock</string>
      </property>
     </widget>
    </item>
-   <item row="12" column="10">
-    <widget class="QLineEdit" name="y_dim_value"/>
-   </item>
-   <item row="16" column="9">
-    <widget class="QPushButton" name="OK_button">
+   <item row="1" column="0" rowspan="2">
+    <widget class="QLabel" name="path_name">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
      <property name="text">
-      <string>OK</string>
+      <string>Path:</string>
      </property>
     </widget>
    </item>
-   <item row="10" column="5">
-    <widget class="QToolButton" name="LigandButton">
+   <item row="1" column="1" rowspan="2" colspan="2">
+    <widget class="QLineEdit" name="path_value"/>
+   </item>
+   <item row="1" column="3" rowspan="2">
+    <widget class="QToolButton" name="PathButton">
      <property name="text">
       <string>...</string>
      </property>
     </widget>
    </item>
-   <item row="13" column="10">
-    <widget class="QLineEdit" name="z_dim_value"/>
+   <item row="1" column="4" colspan="2">
+    <widget class="QLabel" name="grid_label">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Gridbox center:</string>
+     </property>
+    </widget>
    </item>
-   <item row="9" column="0" rowspan="2" colspan="2">
+   <item row="2" column="5">
+    <widget class="QLabel" name="x_center_name">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>X-center:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="6">
+    <widget class="QLineEdit" name="x_value"/>
+   </item>
+   <item row="3" column="0" rowspan="2">
+    <widget class="QLabel" name="receptor_name">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Receptor file:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1" rowspan="2" colspan="2">
+    <widget class="QLineEdit" name="receptor_value"/>
+   </item>
+   <item row="3" column="3" rowspan="2">
+    <widget class="QToolButton" name="ReceptorButton">
+     <property name="text">
+      <string>...</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="5">
+    <widget class="QLabel" name="y_center_name">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Y-center:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="6">
+    <widget class="QLineEdit" name="y_value"/>
+   </item>
+   <item row="4" column="5">
+    <widget class="QLabel" name="z_center_name">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Z-center:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="6">
+    <widget class="QLineEdit" name="z_value"/>
+   </item>
+   <item row="5" column="0">
     <widget class="QLabel" name="ligand_name">
      <property name="font">
       <font>
@@ -635,33 +583,21 @@
       </font>
      </property>
      <property name="text">
-      <string>Ligand ID:</string>
+      <string>Ligand file:</string>
      </property>
     </widget>
    </item>
-   <item row="2" column="1" rowspan="2" colspan="4">
-    <widget class="QLineEdit" name="path_value"/>
+   <item row="5" column="1" colspan="2">
+    <widget class="QLineEdit" name="ligand_value"/>
    </item>
-   <item row="11" column="9">
-    <widget class="QLabel" name="x_dim_name">
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
+   <item row="5" column="3">
+    <widget class="QToolButton" name="LigandButton">
      <property name="text">
-      <string>X-dimension:</string>
+      <string>...</string>
      </property>
     </widget>
    </item>
-   <item row="15" column="0" colspan="11">
-    <widget class="QProgressBar" name="progressBar">
-     <property name="value">
-      <number>24</number>
-     </property>
-    </widget>
-   </item>
-   <item row="10" column="8" colspan="2">
+   <item row="5" column="4" colspan="2">
     <widget class="QLabel" name="dim_label">
      <property name="font">
       <font>
@@ -673,52 +609,22 @@
      </property>
     </widget>
    </item>
-   <item row="12" column="0" rowspan="2" colspan="2">
-    <widget class="QLabel" name="lig_chamin_name">
+   <item row="6" column="5">
+    <widget class="QLabel" name="x_dim_name">
      <property name="font">
       <font>
        <pointsize>10</pointsize>
       </font>
      </property>
      <property name="text">
-      <string>Ligand chain:</string>
+      <string>X-dimension:</string>
      </property>
     </widget>
    </item>
-   <item row="12" column="2" rowspan="2" colspan="3">
-    <widget class="QLineEdit" name="lig_chain_value"/>
+   <item row="6" column="6">
+    <widget class="QLineEdit" name="x_dim_value"/>
    </item>
-   <item row="6" column="0" rowspan="2" colspan="2">
-    <widget class="QLabel" name="ref_name">
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Referential ID:</string>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="2" rowspan="2" colspan="3">
-    <widget class="QLineEdit" name="ref_value"/>
-   </item>
-   <item row="4" column="0" rowspan="2" colspan="2">
-    <widget class="QLabel" name="receptor_name">
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Receptor ID:</string>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="2" rowspan="2" colspan="3">
-    <widget class="QLineEdit" name="receptor_value"/>
-   </item>
-   <item row="11" column="0" colspan="3">
+   <item row="7" column="0" colspan="2">
     <widget class="QLabel" name="rec_chain_name">
      <property name="font">
       <font>
@@ -730,15 +636,72 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="8" colspan="2">
-    <widget class="QLabel" name="grid_label">
+   <item row="7" column="2">
+    <widget class="QLineEdit" name="rec_chain_value"/>
+   </item>
+   <item row="7" column="5">
+    <widget class="QLabel" name="y_dim_name">
      <property name="font">
       <font>
        <pointsize>10</pointsize>
       </font>
      </property>
      <property name="text">
-      <string>Gridbox center:</string>
+      <string>Y-dimension:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="6">
+    <widget class="QLineEdit" name="y_dim_value"/>
+   </item>
+   <item row="8" column="5">
+    <widget class="QLabel" name="z_dim_name">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Z-dimension:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="6">
+    <widget class="QLineEdit" name="z_dim_value"/>
+   </item>
+   <item row="9" column="4">
+    <widget class="QLabel" name="spacing_label">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>       Spacing:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="5" colspan="2">
+    <widget class="QLineEdit" name="spacing_value"/>
+   </item>
+   <item row="10" column="0" colspan="7">
+    <widget class="QProgressBar" name="progressBar">
+     <property name="value">
+      <number>24</number>
+     </property>
+    </widget>
+   </item>
+   <item row="11" column="5">
+    <widget class="QPushButton" name="OK_button">
+     <property name="text">
+      <string>OK</string>
+     </property>
+    </widget>
+   </item>
+   <item row="11" column="6">
+    <widget class="QPushButton" name="exit2_button">
+     <property name="text">
+      <string>Exit</string>
      </property>
     </widget>
    </item>

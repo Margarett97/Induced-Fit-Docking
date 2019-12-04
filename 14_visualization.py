@@ -4,17 +4,21 @@
 import os
 from chimera import *
 from chimera import runCommand as rc
-from 13_ads import pose
 
-from parameters import *
+#from parameters import *
 
+#import sys
+#sys.path.append(work_dir)
+#from temp import best
+
+work_dir="C:/Users/pukma/Desktop/test"
 os.chdir(work_dir)
-
+best="pose3"
 #ref='1dbb'
 
 
 #rc("open #0 " + ref + ".pdb")
-rc("open #1 " + pose + ".pdb")
+rc("open #1 " + best + ".pdb")
 rc("color cyan #1")
 rc("color gold :/isHet")
 ##rc("alias site1 #0:"+ligand)
@@ -23,8 +27,8 @@ rc("color gold :/isHet")
 ##rc("match iterate 2.0 site2 site1")
 ##rc("focus both")
 rc("color byhet")
-rc("transparency 75,r")
+rc("transparency 30,r")
 
 
-rc("2dlabels create 1 text PROTEIN color gold xpos 0 ypos 0.1")
-rc("2dlabels create 2 text LIGAND color cyan xpos 0 ypos 0.07")
+rc("2dlabels create 1 text LIGAND color gold xpos 0 ypos 0.1")
+rc("2dlabels create 2 text RECEPTOR color cyan xpos 0 ypos 0.07")

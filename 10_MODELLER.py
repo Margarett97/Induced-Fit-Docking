@@ -11,8 +11,6 @@ from parameters import *
 
 os.chdir(work_dir)
 
-if os.path.exists("temp.py"):
-  os.remove("temp.py")
 
 #PARAMETRY:
 
@@ -62,7 +60,7 @@ def make_restraints(mdl1, aln):
 #ALIGNMENT:
 
 env = environ()
-env.io.atom_files_directory = path
+env.io.atom_files_directory = work_dir
 
 #Create a new empty alignment and model 
 aln = alignment(env)
@@ -92,7 +90,7 @@ alig='myAlignment.ali'
 #OPTIMIZATION:
 
 
-for i in range(1,11):
+for i in range(0,10):
 	env = environ(rand_seed=-49837)
 	env.io.hetatm = True
 	#soft sphere potential
@@ -102,7 +100,7 @@ for i in range(1,11):
 	env.edat.contact_shell = 4.0
 	env.edat.update_dynamic = 0.39
 
-	env.io.atom_files_directory = path
+	env.io.atom_files_directory = work_dir
 
 	env.libs.parameters.read(file='$(LIB)/par.lib')
 	env.libs.topology.read(file='$(LIB)/top_heav.lib')

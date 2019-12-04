@@ -92,13 +92,13 @@ if __name__ == '__main__':
         output_stem = d.ligMol.name
 
     for ix, conf in enumerate(d.ch.conformations):
-        outfile= output_stem + '_' + str(ix+1) + ext
+        outfile= output_stem + '_' + str(ix) + ext
         if include_energy:
             print "ix=", ix
             print "conf.energy=", conf.energy
             energy_str = str(round(conf.energy,3))
             if energy_str[0]=='-':
-                energy_str = energy_str[1:] 
+                energy_str = energy_str[0:] 
             outfile= output_stem + '_'+energy_str + ext
         conf = d.ch.conformations[ix]
         d.ligMol.parser.write_with_new_coords(conf.getCoords(),outfile)

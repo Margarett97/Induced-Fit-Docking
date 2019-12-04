@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
-
 import os
-from names import path, replyLOG, ligand
+
 
 
 
@@ -18,10 +17,9 @@ lig=count
 start=('RMSD between'+str(lig))
 
 
-log = open(path+"/"+replyLOG+".txt", "r")
-logLines = log.readlines()
-RMSDvalue=[]
-for i, li in enumerate(logLines):
-    if li.startswith(start):
-        value = line.split(" ")[6]
+with open(path+"/replyLOG.txt","r") as f:
+    a=f.read()
+    if a.startswith(start):
+        print(a)
+
     

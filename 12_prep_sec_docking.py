@@ -4,12 +4,16 @@
 import os
 from chimera import *
 from chimera import runCommand as rc
-from 11_dope_ads_distance import pose
+
 from parameters import *
 
+import sys
+sys.path.append(work_dir)
+from temp import best_pose
+
 os.chdir(work_dir)
-rc("open "+ pose)
+rc("open "+ best_pose+".pdb")
 rc("select :/isHet " ) 
 rc("delete selected")
-rc("write #0 "+pose+"_ligremove.pdb")
+rc("write #0 "+best_pose+"_ligremove.pdb")
 rc("close all")
