@@ -5,7 +5,7 @@ os.chdir(work_dir)
 
 with open("grid.gpf","r") as f:
     a=f.read()
-    repl=a.replace("smooth 0.5","")
+    repl=a.replace("smooth 0.5                           # store minimum energy w/in rad(A)","")
     with open("grid.gpf","w") as g:
         g.write(repl)
     

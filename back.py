@@ -8,8 +8,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import sys, os , subprocess
-from PyQt5.QtCore import  pyqtSlot
+import sys, os , subprocess, time
+from PyQt5.QtCore import  pyqtSlot, QThread, pyqtSignal
 from PyQt5.QtWidgets import QApplication, QDialog, QInputDialog, QLineEdit, QFileDialog
 from PyQt5.uic import loadUi
 from taskthread import *
@@ -268,7 +268,7 @@ class Ui_Second(object):
         self.gridLayout.addWidget(self.rec_chain_name, 7, 0, 1, 2)
         self.rec_chain_value = QtWidgets.QLineEdit(Second)
         self.rec_chain_value.setObjectName("rec_chain_value")
-        self.gridLayout.addWidget(self.rec_chain_value, 7, 2, 1, 1)
+        self.gridLayout.addWidget(self.rec_chain_value, 7, 2, 1,2)
         self.y_dim_name = QtWidgets.QLabel(Second)
         font = QtGui.QFont()
         font.setPointSize(10)
@@ -307,6 +307,7 @@ class Ui_Second(object):
         self.exit2_button.setObjectName("exit2_button")
         self.gridLayout.addWidget(self.exit2_button, 11, 6, 1, 1)
 
+
         self.retranslateUi(Second)
         QtCore.QMetaObject.connectSlotsByName(Second)
 
@@ -334,6 +335,7 @@ class Ui_Second(object):
         self.exit2_button.setText(_translate("Second", "Exit"))
 
 
+
         self.PathButton.clicked.connect(self.AddFilePath4)
         self.ReceptorButton.clicked.connect(self.ReceptorID)
         self.LigandButton.clicked.connect(self.LigandID)
@@ -342,10 +344,16 @@ class Ui_Second(object):
         self.x_dim_value.setPlaceholderText('40')
         self.y_dim_value.setPlaceholderText('40')
         self.z_dim_value.setPlaceholderText('40')
+        self.rec_chain_value.setPlaceholderText('optional')
 
         self.spacing_value.setPlaceholderText('0.375')
 
         self.OK_button.clicked.connect(self.OK)
+
+        self.myLongTask = TaskThread() 
+        self.myLongTask.taskFinished.connect(self.onFinished)
+
+        
         self.exit2_button.clicked.connect(self.Exit2)
 
 
@@ -435,17 +443,25 @@ class Ui_Second(object):
 
         
 
-
         
-        subprocess.call(["py","0_RUN.py"],shell=True)
+        self.progressBar.setRange(0,0) 
+        self.myLongTask.start() 
+        
 
 
+    def onFinished(self): 
+        self.progressBar.setRange(0,1)
              
 
     def Exit2(self):
         Second.close()
         
-
+class TaskThread(QtCore.QThread):
+    taskFinished = QtCore.pyqtSignal()
+    def run(self):
+        time.sleep(3)
+        subprocess.call(["py","0_RUN.py"],shell=True)
+        self.taskFinished.emit()  
 
 
 
