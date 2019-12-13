@@ -460,7 +460,7 @@ class TaskThread(QtCore.QThread):
     taskFinished = QtCore.pyqtSignal()
     def run(self):
         time.sleep(3)
-        subprocess.call(["py","0_RUN.py"],shell=True)
+        subprocess.run(["py","0_RUN.py"],shell=True)
         self.taskFinished.emit()  
 
 

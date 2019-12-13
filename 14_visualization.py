@@ -5,15 +5,13 @@ import os
 from chimera import *
 from chimera import runCommand as rc
 
-#from parameters import *
+from parameters import *
+import sys
+sys.path.append(work_dir)
+from temp import *
 
-#import sys
-#sys.path.append(work_dir)
-#from temp import best
-
-work_dir="C:/Users/pukma/Desktop/test"
 os.chdir(work_dir)
-best="pose3"
+
 #ref='1dbb'
 
 
