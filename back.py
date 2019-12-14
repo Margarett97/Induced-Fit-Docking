@@ -327,7 +327,7 @@ class Ui_Second(object):
         self.LigandButton.setText(_translate("Second", "..."))
         self.dim_label.setText(_translate("Second", "Number of points in:"))
         self.x_dim_name.setText(_translate("Second", "X-dimension:"))
-        self.rec_chain_name.setText(_translate("Second", "Receptor chain to delete:"))
+        self.rec_chain_name.setText(_translate("Second", "Active receptor chain:"))
         self.y_dim_name.setText(_translate("Second", "Y-dimension:"))
         self.z_dim_name.setText(_translate("Second", "Z-dimension:"))
         self.spacing_label.setText(_translate("Second", "       Spacing:"))
@@ -409,7 +409,7 @@ class Ui_Second(object):
         spacing=self.spacing_value.text()
 
         with open("parameters.py","a") as p:
-            name="chain_del='"
+            name="chain='"
             p.write(name + chain_del_value+"'\n")
             name="x='"
             p.write(name + x+"'\n")
@@ -455,6 +455,7 @@ class Ui_Second(object):
 
     def Exit2(self):
         Second.close()
+        exit(subprocess.run(["py","0_RUN.py"],shell=True))
         
 class TaskThread(QtCore.QThread):
     taskFinished = QtCore.pyqtSignal()
