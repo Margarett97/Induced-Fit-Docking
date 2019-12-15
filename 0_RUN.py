@@ -68,13 +68,15 @@ from parameters import *
 
 import sys
 sys.path.append(work_dir)
+import temp
+reload_module(temp)
 from temp import *
-
 
 
 ##IFD:
 
 subprocess.run([chimera_path, "--nogui", "--script","12_prep_sec_docking.py"],shell=True)
+
 
 subprocess.run(["python2", "3_prepare_receptor4.py", "-r", best_pose+"_ligremove.pdb", "-A", "hydrogens", "-U", "nphs_lps_waters"],shell=True)
 

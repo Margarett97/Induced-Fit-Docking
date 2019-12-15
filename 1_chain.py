@@ -29,13 +29,12 @@ with open(receptor+".pdb","r") as f:
 
 
 
-
-
 with open("temp.py","a") as t:
     name="chain_del='"
     t.write(name+chain_del+"'\n")
-        
 
+
+        
 
 #select ligand chain ID:   
 with open(ligand+".pdb","r+") as f:
@@ -56,3 +55,4 @@ with open("temp.py","a") as p:
         with open(f,"w") as g:
 
             g.write(repl)
+
