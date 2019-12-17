@@ -60,7 +60,7 @@ def make_restraints(mdl1, aln):
 #ALIGNMENT:
 
 env = environ()
-env.io.atom_files_directory = work_dir
+env.io.atom_files_directory = [work_dir]
 
 #Create a new empty alignment and model 
 aln = alignment(env)

@@ -18,6 +18,16 @@ class Ui_Second(object):
     def setupUi(self, Second):
         Second.setObjectName("Second")
         Second.resize(476, 257)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("image.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("image.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon.addPixmap(QtGui.QPixmap("image.png"), QtGui.QIcon.Disabled, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("image.png"), QtGui.QIcon.Disabled, QtGui.QIcon.On)
+        icon.addPixmap(QtGui.QPixmap("image.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("image.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon.addPixmap(QtGui.QPixmap("image.png"), QtGui.QIcon.Selected, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("image.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
+        Second.setWindowIcon(icon)
         self.gridLayout = QtWidgets.QGridLayout(Second)
         self.gridLayout.setObjectName("gridLayout")
         self.api_name = QtWidgets.QLabel(Second)
@@ -168,6 +178,7 @@ class Ui_Second(object):
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.PlaceholderText, brush)
         self.api_name.setPalette(palette)
         font = QtGui.QFont()
+        font.setPointSize(28)
         font.setFamily("Garamond")
         font.setPointSize(28)
         font.setBold(True)
@@ -313,7 +324,7 @@ class Ui_Second(object):
 
     def retranslateUi(self, Second):
         _translate = QtCore.QCoreApplication.translate
-        Second.setWindowTitle(_translate("Second", "Form"))
+        Second.setWindowTitle(_translate("Second", "FitDock"))
         self.api_name.setText(_translate("Second", "                   FitDock"))
         self.path_name.setText(_translate("Second", "Path:"))
         self.PathButton.setText(_translate("Second", "..."))

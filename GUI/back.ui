@@ -13,6 +13,11 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../image.png</normaloff>
+    <disabledoff>../../image.png</disabledoff>../../image.png</iconset>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0" colspan="7">
     <widget class="QLabel" name="api_name">

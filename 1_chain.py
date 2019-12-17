@@ -21,12 +21,15 @@ with open(receptor+".pdb","r") as f:
                 for val in names:
                     if val not in new:
                         new.append(val)
-                        chain_del=",".join(new)
+
                     
             else:
                 chain_del=''
 
-
+if len(new)>1:
+    chain_del=",.".join(new)
+elif len(new)==1:
+    chain_del=" ".join(new)
 
 
 with open("temp.py","a") as t:
@@ -38,21 +41,26 @@ with open("temp.py","a") as t:
 
 #select ligand chain ID:   
 with open(ligand+".pdb","r+") as f:
-    line=f.readline().split()
-    lig_chain=line[2] 
-with open("temp.py","a") as p:
-    name="lig_chain='"
-    p.write(name+lig_chain+"'\n")
+    line=f.readlines()
+    for i, lines in enumerate(line):
+        if lines.startswith("HETATM"):
+            a=lines.split()
+            lig_chain=a[4] 
+    with open("temp.py","a") as p:
+        name="lig_chain='"
+        p.write(name+lig_chain+"'\n")
 
         
-    os.chdir(work_dir)
-    ID=line[1] #change numeric ligand ID to string
-    if ID.isnumeric():
+        os.chdir(work_dir)
+        ID=a[3] #change numeric ligand ID to string
 
-        data=f.read()
-        repl=data.replace(ID,"UNK")
+        with open(ligand+".pdb","r") as t:
+            if ID.isnumeric():
+    
+                data=t.read()
+                repl=data.replace(ID,"UNK")
 
-        with open(f,"w") as g:
+                with open(ligand+".pdb","w") as g:
 
-            g.write(repl)
+                    g.write(repl)
 

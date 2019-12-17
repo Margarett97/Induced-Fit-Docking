@@ -22,7 +22,7 @@ for j in range(0,10):
     rc("open #1 " + ligand_dok+str(j)+".pdb")
     rc("delete H")
     rc("resrenumber 999 #1")
-    rc("combine #0,1  ")
+    rc("combine #0,1 newchainids false")
     rc("changechains "+lig_chain+","+chain+" "+chain+","+chain) 
     rc("resrenumber 1 #2")
     rc("write #2 pose" +str(j) + ".pdb")

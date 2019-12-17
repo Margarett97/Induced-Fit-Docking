@@ -16,7 +16,13 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>FitDock</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../image.png</normaloff>
+    <disabledoff>../../image.png</disabledoff>
+    <disabledon>../../image.png</disabledon>../../image.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="2" column="1" colspan="2">

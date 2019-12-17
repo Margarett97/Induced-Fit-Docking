@@ -11,7 +11,18 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>FitDock</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../image.png</normaloff>
+    <normalon>../../image.png</normalon>
+    <disabledoff>../../image.png</disabledoff>
+    <disabledon>../../image.png</disabledon>
+    <activeoff>../../image.png</activeoff>
+    <activeon>../../image.png</activeon>
+    <selectedoff>../../image.png</selectedoff>
+    <selectedon>../../image.png</selectedon>../../image.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="7" column="6">
