@@ -56,6 +56,7 @@ with open(work_dir+'\dope.log', "w") as outfile:
 
 subprocess.run(["py","11_dope_ads_distance.py"],shell=True)
 
+
 ##ADD NEW PATH
 
 subprocess.run(["py","add_new_path.py"],shell=True)
@@ -107,6 +108,7 @@ subprocess.run([chimera_path, "--nogui","--silent","--script","9a_combine2.py"])
 
 
 subprocess.run(["py", "13_ads.py"],shell=True)
+
 
 subprocess.run([chimera_path, "--gui","--silent","--script","14_visualization.py"])
 

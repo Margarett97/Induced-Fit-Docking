@@ -8,7 +8,7 @@ from chimera.tkgui import saveReplyLog as rl
 
 path="C:/Users/pukma/Desktop/Dokowanie/9_factor_xa/0_RMSD"
 ref='1xka'
-model='pose2'
+model='pose9'
 ligand='4PP'
 
 
