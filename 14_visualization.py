@@ -25,8 +25,8 @@ rc("color gold :/isHet")
 ##rc("match iterate 2.0 site2 site1")
 ##rc("focus both")
 rc("color byhet")
-rc("transparency 30,r")
-
+rc("transparency 80,r")
+rc("rlabel #1:/isHet zr<5")
 
 rc("2dlabels create 1 text LIGAND color gold xpos 0 ypos 0.1")
 rc("2dlabels create 2 text RECEPTOR color cyan xpos 0 ypos 0.07")
