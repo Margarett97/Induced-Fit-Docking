@@ -90,7 +90,7 @@ data=pd.DataFrame(
 
 gg=ggplot(data , aes(x = 'POSES', y = 'DISTANCE',size='2',color='POSES')) +\
     geom_point() +\
-    ggtitle('Optimized distance')
+    ggtitle('Optimized distance: '+receptor)
 
 ggsave(plot = gg, filename ='DISTANCE')
 

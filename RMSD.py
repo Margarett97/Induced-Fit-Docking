@@ -6,10 +6,10 @@ from chimera import *
 from chimera import runCommand as rc
 from chimera.tkgui import saveReplyLog as rl
 
-path="C:/Users/pukma/Desktop/Dokowanie/9_factor_xa/0_RMSD"
-ref='1xka'
-model='pose9'
-ligand='4PP'
+path="C:/Users/pukma/Desktop/Dokowanie/18_thymidine_kinase_b/0_RMSD"
+ref='1kim'
+model='pose2'
+ligand='THM'
 
 
 os.chdir(path+'/')

@@ -50,7 +50,7 @@ data=pd.DataFrame(
 
 gg=ggplot(data , aes(x = 'POSES', y = 'ADS',size='2',color='POSES')) +\
     geom_point() +\
-    ggtitle('AutoDockScore')
+    ggtitle('AutoDockScore: '+receptor)
     
         
 ggsave(plot = gg, filename ='ADScore')
