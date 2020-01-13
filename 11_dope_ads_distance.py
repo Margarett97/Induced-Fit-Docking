@@ -98,7 +98,8 @@ ggsave(plot = gg, filename ='DISTANCE')
 
 pose_num=data["col2"].idxmax()
 
-pose=("pose"+str(pose_num))
+pose=("pose_docked_opt"+str(pose_num))
+
 
 
 with open("temp.py","a") as p:
@@ -106,7 +107,12 @@ with open("temp.py","a") as p:
     p.write(name+pose+"'\n")
 
 
+
+
+
+
 shutil.copy(work_dir+"/temp.py",work_dir+"/IFD") 
 shutil.copy(work_dir+"/"+pose+".pdb",work_dir+"/IFD")
-shutil.copy(work_dir+"/"+ligand+".pdb",work_dir+"/IFD")  
+shutil.copy(work_dir+"/"+ligand+".pdb",work_dir+"/IFD")
+shutil.copy(work_dir+"/"+receptor+".pdb",work_dir+"/IFD")
 

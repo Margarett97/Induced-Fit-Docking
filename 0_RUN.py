@@ -51,6 +51,11 @@ subprocess.run([chimera_path, "--nogui","--silent","--script","9_combine.py"])
 
 args = ['10_MODELLER.py']
 cmd = ['py'] + args
+with open(work_dir+'\modeller.log', "w") as outfile:
+    subprocess.run(cmd, stdout=outfile,shell=True)
+
+args = ['10a_DOPE.py']
+cmd = ['py'] + args
 with open(work_dir+'\dope.log', "w") as outfile:
     subprocess.run(cmd, stdout=outfile,shell=True)
 
@@ -79,11 +84,11 @@ from temp import *
 subprocess.run([chimera_path, "--nogui", "--script","12_prep_sec_docking.py"],shell=True)
 
 
-subprocess.run(["python2", "3_prepare_receptor4.py", "-r", best_pose+"_ligremove.pdb", "-A", "hydrogens", "-U", "nphs_lps_waters"],shell=True)
+subprocess.run(["python2", "3_prepare_receptor4.py", "-r", "ligand_remove.pdb", "-A", "hydrogens", "-U", "nphs_lps_waters"],shell=True)
 
 subprocess.run(["python2", "4_prepare_ligand4.py", "-l",ligand+".pdb", "-A", "hydrogens", "-U", "nphs"],shell=True)
 
-subprocess.run(["python2", "5_prepare_gpf4.py", "-l", ligand+".pdbqt","-r", best_pose+"_ligremove.pdbqt",
+subprocess.run(["python2", "5_prepare_gpf4.py", "-l", ligand+".pdbqt","-r", "ligand_remove.pdbqt",
                  "-o", "grid.gpf", "-p", "gridcenter="+x+","+y+","+z,"-p","npts="+x_dim+","+y_dim+","+z_dim,"-p","spacing="+spacing],shell=True)
 
 subprocess.run(["py","6a_smooth_off.py"],shell=True)
@@ -91,13 +96,13 @@ subprocess.run(["py","6a_smooth_off.py"],shell=True)
 
 subprocess.run([grid_path, "-p", work_dir+"/"+"grid.gpf", "-l", work_dir+"/"+"grid.glg"], cwd=work_dir, shell=True)
 
-subprocess.run(["python2", "6_prepare_dpf42.py", "-l", ligand+".pdbqt", "-r", best_pose+"_ligremove.pdbqt", "-o", best_pose+"_ligremove.dpf"],shell=True)
+subprocess.run(["python2", "6_prepare_dpf42.py", "-l", ligand+".pdbqt", "-r", "ligand_remove.pdbqt", "-o", "ligand_remove.dpf"],shell=True)
 
 
-subprocess.run([dock_path, "-p", best_pose+"_ligremove.dpf", "-l", best_pose+"_ligremove.dlg"], cwd=work_dir, shell=True)
+subprocess.run([dock_path, "-p", "ligand_remove.dpf", "-l","ligand_remove.dlg"], cwd=work_dir, shell=True)
 
 
-subprocess.run(["python2", "7_write_models.py", "-d", best_pose+"_ligremove.dlg", "-o", "docking"],shell=True)
+subprocess.run(["python2", "7_write_models.py", "-d", "ligand_remove.dlg", "-o", "docking"],shell=True)
 
 
 name='docking_'

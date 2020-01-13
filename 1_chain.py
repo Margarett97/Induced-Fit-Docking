@@ -22,15 +22,16 @@ with open(receptor+".pdb","r") as f:
                     if val not in new:
                         new.append(val)
 
+
                     
-            else:
+            elif a[4]== chain:
                 chain_del=''
+
 
 if len(new)>1:
     chain_del=",.".join(new)
 elif len(new)==1:
     chain_del=" ".join(new)
-
 
 with open("temp.py","a") as t:
     name="chain_del='"
@@ -43,8 +44,8 @@ with open(ligand+".pdb","r+") as f:
     line=f.readlines()
     for i, lines in enumerate(line):
         if lines.startswith("HETATM"):
-            a=lines.split()
-            lig_chain=a[4] 
+            b=lines.split()
+            lig_chain=b[4] 
     with open("temp.py","a") as p:
         name="lig_chain='"
         p.write(name+lig_chain+"'\n")

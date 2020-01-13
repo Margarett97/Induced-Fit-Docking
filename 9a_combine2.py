@@ -17,7 +17,7 @@ os.chdir(work_dir)
 
 ligand_dok="docking_"
 for j in range(0,10):
-    rc("open #0 " + best_pose + "_ligremove.pdb")
+    rc("open #0 " + "ligand_remove.pdb")
     rc("delete H")
     rc("open #1 " + ligand_dok+str(j)+".pdb")
     rc("delete H")

@@ -24,7 +24,7 @@ rc("delete selected")
 rc("write #0 "+receptor+".pdb")
 rc("close all")
 
-
+ 
 
 
 

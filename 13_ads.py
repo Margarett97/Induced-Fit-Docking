@@ -13,7 +13,7 @@ from temp import best_pose
 os.chdir(work_dir)
 
 
-dockingLog = open(work_dir+'/'+best_pose+"_ligremove.dlg", "r")
+dockingLog = open(work_dir+'/'+"ligand_remove.dlg", "r")
 logLines = dockingLog.readlines()
 energyValue=[]
 num=1
@@ -59,11 +59,15 @@ ggsave(plot = gg, filename ='ADScore')
 
 value=np.argmin(ADS)
 pose2=("pose"+str(value))
+lig_num=str(value)
 
 with open("temp.py","a") as p:
     name="best='"
     p.write(name+pose2+"'\n")
 
+with open("temp.py","a") as p:
+    name="lig_num='"
+    p.write(name+lig_num+"'\n")
 
 
 

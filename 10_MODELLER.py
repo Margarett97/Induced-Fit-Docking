@@ -130,6 +130,8 @@ for i in range(0,10):
 	select3=select2.only_std_residues()
 	select4=select3.by_residue()
 
+	
+
 	mdl1.restraints.unpick_all()
 	mdl1.restraints.pick(select4)
 
@@ -144,28 +146,13 @@ for i in range(0,10):
 	optimize(select4, sched)
 
 	select4.energy()
+
+	atmsel2=selection(mdl1) 
+	score2=atmsel2.assess_dope()
+	
 	mdl1.write(file=model_name+'_docked_opt'+str(i)+'.pdb')
 
-	#DOPE
 
-     
-	md= complete_pdb(env, '../'+'pose_docked_opt'+str(i)+'.pdb')
-	
-	sel=selection(md)
-	sel1=sel.only_het_residues()
-	sel2=sel1.select_sphere(5)
-	sel3=sel2.only_std_residues()
-	sel4=sel3.by_residue()
-
-	sel4.energy()
-
-	md.restraints.unpick_all()
-	md.restraints.pick(sel4)
-	print("DOPE VALUE")
-	atmsel=selection(md)
-	atmsel.assess_dope()
-	print("DOPE FOR SELECTED RESIDUES")
-	sel4.assess_dope()
 
 	
 
